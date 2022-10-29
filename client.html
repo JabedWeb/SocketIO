@@ -14,7 +14,7 @@
     <script>
         const socket = io();
         socket.on('testData', (data) => {
-            document.getElementById('title').innerHTML = data.age;
+            document.getElementById('title').innerHTML = data;
         });
         document.getElementById('msg').onkeyup=(e)=>{
             let msg=e.target.value

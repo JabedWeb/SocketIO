@@ -18,13 +18,9 @@ const io=new Server(httpServer);
 //socket connection
 io.on('connection',(socket)=>{
     console.log("client connected".bgGreen.black);
-    socket.emit('testData',{
-        name : "Jabed",
-        age : 29,
-        message : "Hello"
-    })
+
     socket.on('msg',(data)=>{
-        console.log(data);
+        io.sockets.emit('testData',data)
     })
     socket.on('disconnect',()=>{
         console.log("client disconnected".bgRed.black);
