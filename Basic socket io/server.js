@@ -16,22 +16,24 @@ const httpServer=createServer(app);
 const io=new Server(httpServer);
 
 //socket connection
-io.on('connection',(socket)=>{
-    console.log("client connected".bgGreen.black);
 
-    socket.on('msg',(data)=>{
-        io.sockets.emit('testData',data)
-    })
-    socket.on('disconnect',()=>{
-        console.log("client disconnected".bgRed.black);
-    })
-})
 
 //load client
 app.use('/',(req,res)=>{
 
     res.sendFile(path.join(__dirname,"client.html"))
+
 })
+
+io.on("connection",(socket)=>{
+    console.log("socket is connected".bgGreen.black);
+    socket.on("message",(msg)=>{
+        console.log(msg);
+    })
+    socket.on('disconnect',()=>{
+        console.log("socket is disconnected".bgRed.black);
+    }
+}
 
 //npm listen
 httpServer.listen(5050,()=>{
