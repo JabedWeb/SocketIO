@@ -32,8 +32,8 @@ io.on("connection",(socket)=>{
     })
     socket.on('disconnect',()=>{
         console.log("socket is disconnected".bgRed.black);
-    }
-}
+    })
+});
 
 //npm listen
 httpServer.listen(5050,()=>{
