@@ -8,12 +8,20 @@
 </head>
 <body>
     <h1 id="title"></h1>
+    <hr>
+    <input id="msg" type="text">
     <script src="/socket.io/socket.io.js"></script>
     <script>
         const socket = io();
         socket.on('testData', (data) => {
             document.getElementById('title').innerHTML = data.age;
         });
+        document.getElementById('msg').onkeyup=(e)=>{
+            let msg=e.target.value
+            socket.emit('msg',msg);
+            console.log(msg);
+        }
+ 
     </script>
 </body>
 </html>

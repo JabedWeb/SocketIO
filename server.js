@@ -23,6 +23,9 @@ io.on('connection',(socket)=>{
         age : 29,
         message : "Hello"
     })
+    socket.on('msg',(data)=>{
+        console.log(data);
+    })
     socket.on('disconnect',()=>{
         console.log("client disconnected".bgRed.black);
     })
