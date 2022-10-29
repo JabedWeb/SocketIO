@@ -11,7 +11,7 @@
     <script src="/socket.io/socket.io.js"></script>
     <script>
         const socket = io();
-        socket.on('message', (data) => {
+        socket.on('testData', (data) => {
             document.getElementById('title').innerHTML = data.age;
         });
     </script>
